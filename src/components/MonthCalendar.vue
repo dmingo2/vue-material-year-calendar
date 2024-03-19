@@ -152,6 +152,12 @@ export default {
     },
     dragDay (dayObj) {
       if (this.isMouseDown) this.toggleDay(dayObj)
+      return this.$emit('overDay', {
+        month: this.month,
+        date: dayObj.value,
+        selected: !dayObj.active,
+        className: this.activeClass
+      })
     },
     mouseDown (dayObj) {
       this.toggleDay(dayObj)
